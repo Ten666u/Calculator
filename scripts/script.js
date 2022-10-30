@@ -140,13 +140,11 @@ posNegBtn.addEventListener('click', () => {
 
 // Добавление десятичного раздрелителя
 const sepBtn = document.getElementById('separatorNumberBtn')
-let sepCheck = false
 sepBtn.addEventListener('click', () =>{
-    if((parseFloat(inptNumber.textContent) % 1 == 0) && (inptNumber.textContent.length < 9) && !sepCheck){
+    if((parseFloat(inptNumber.textContent) % 1 == 0) && (inptNumber.textContent.length < 9) && (inptNumber.textContent.indexOf('.') == -1)){
         inptNumber.textContent += '.'
-        sepCheck = true
     }
-    else{
+    else if(inptNumber.textContent.indexOf('.') == inptNumber.textContent.length-1){
         sepCheck = false
         inptNumber.textContent = inptNumber.textContent.substring(0, inptNumber.textContent.length - 1)
     }
